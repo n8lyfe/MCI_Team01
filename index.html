@@ -14,46 +14,29 @@
 
 <!-- BODY -->
     <body>
-        <div id="bg">
-            <img src="src/sport1.jpg" alt="">
-          </div>
-        <div class="container-fluid" id="grid">
-            <div class="row text-center">
-                <div class="w-50 h-50 col-lg-6">
-                    <div class="card-body align-items-center d-flex justify-content-center special-card">
-                        <div class="card-body">
-                            <h1 id="tnames">
-                                Stopwatch
-                            </h1>
-                        </div>
-                    </div>
+        <div class="container-fluid d-flex flex-column" id="grid">
+            <div class="row w-100 h-50 text-center myrows">
+                <div class="col-12 col-sm-6 mycols d-flex justify-content-center">
+					<h3 id="tnames">
+						Stopwatch
+					</h3>
                 </div>
-                <div class="col-lg-6">
-                    <div class="card-body align-items-center d-flex justify-content-center special-card">
-                        <div class="card-body">
-                            <h1 id="tnames">
-                                Countdown
-                            </h1>
-                        </div>
-                    </div>
+                <div class="col-12 col-sm-6 mycols d-flex justify-content-center">
+					<h3 id="tnames">
+						Countdown
+					</h3>
                 </div>
-                <div class="col-lg-6">
-                    <div class="card-body align-items-center d-flex justify-content-center special-card">
-                        <div class="card-body">
-                            <h1 id="tnames">
-                                EMOM
-                            </h1>
-                        </div>
-                    </div>
+			</div>
+			<div class="row w-100 h-50 text-center myrows">
+                <div class="col-12 col-sm-6 mycols d-flex justify-content-center">
+					<h3 id="tnames">
+						EMOM
+					</h3>
                 </div>
-                <div class="col-lg-6">
-                    <div class="card-body align-items-center d-flex justify-content-center special-card">
-                        <div class="card-body">
-                            <h1 id="tnames">
-                                A/B - Intervall
-                            </h1>
-                        </div>
-                    </div>
+                <div class="col-12 col-sm-6 mycols d-flex justify-content-center">
+					<h3 id="tnames">
+						A/B - Intervall
+					</h3>
                 </div>
             </div>
         </div>
@@ -65,61 +48,43 @@
 <style>
     
 #grid {
-    width: 100%;
-    overflow: hidden;
-    padding-left: 0%;
-    margin: 0%;
+height:100vh; 
+padding:0px; 
+background-image:url('src/sport1.jpg'); 
+background-size:cover; 
 }
+
 body {
   height: 100%;
   width: 100%;
   margin: 0;
 }
 
-#bg {
-  position: fixed; 
-  top: -50%; 
-  left: -50%; 
-  width: 200%; 
-  height: 200%;
+.myrows{
+border: 0px solid green;
+margin: 0px;
+padding: 0px;
 }
-#bg img {
-  position: absolute; 
-  top: 0; 
-  left: 0; 
-  right: 0; 
-  bottom: 0; 
-  margin: auto; 
-  min-width: 50%;
-  min-height: 50%;
+
+.mycols{
+display: flex;
+align-items: center;
+border: 3px solid white;
+vertical-align: middle;
+background-color: #000000;
+opacity: .75;
+}
+
+.mycols:hover{
+background-color: #FFFFFF;
+opacity: .75;
 }
 
 #tnames {
     color: black;
     opacity: 2;
-    font-size: 500%;
+    font-size: 300%;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: rgb(216, 216, 216);
-}
-
-.special-card:hover {
-    opacity: .75;
-}
-
-@media screen and (min-width: 990px) {
-    .special-card {
-        width: 50vw; 
-        height: 50vh;
-        background-color: rgb(58, 59, 85);
-        opacity: .55;
-    }
-}
-@media screen and (max-width: 990px) {
-    .special-card {
-            width: 100vw; 
-            height: 25vh;
-            background-color: rgba(58, 59, 85);
-            opacity: .55;
-        }
 }
 </style>
