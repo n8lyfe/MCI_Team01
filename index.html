@@ -16,27 +16,35 @@
     <body>
         <div class="container-fluid d-flex flex-column" id="grid">
             <div class="row w-100 h-50 text-center myrows">
-                <div class="col-12 col-sm-6 mycols d-flex justify-content-center">
-					<h3 id="tnames">
-						Stopwatch
-					</h3>
-                </div>
-                <div class="col-12 col-sm-6 mycols d-flex justify-content-center">
-					<h3 id="tnames">
-						Countdown
-					</h3>
-                </div>
+				<div class="col-12 col-sm-6 mycols d-flex justify-content-center">
+					<a href="stopwatch.html">
+						<h3 id="tnames">
+							Stopwatch
+						</h3>
+					</a>
+				</div>
+				<div class="col-12 col-sm-6 mycols d-flex justify-content-center">
+					<a href="countdown.html">
+						<h3 id="tnames">
+							Countdown
+						</h3>
+					</a>
+				</div>
 			</div>
 			<div class="row w-100 h-50 text-center myrows">
                 <div class="col-12 col-sm-6 mycols d-flex justify-content-center">
-					<h3 id="tnames">
-						EMOM
-					</h3>
+					<a href="emom.html">
+						<h3 id="tnames">
+							EMOM
+						</h3>
+					</a>
                 </div>
                 <div class="col-12 col-sm-6 mycols d-flex justify-content-center">
-					<h3 id="tnames">
-						A/B - Intervall
-					</h3>
+					<a href="abintervall.html">
+						<h3 id="tnames">
+							A/B - Intervall
+						</h3>
+					</a>
                 </div>
             </div>
         </div>
@@ -66,8 +74,20 @@ margin: 0px;
 padding: 0px;
 }
 
+a{
+height: 100%;
+width: 100%;
+display: flex;
+align-items: center;
+justify-content: center;
+opacity: .75;
+text-decoration: none;
+}
+
+
 .mycols{
 display: flex;
+justify-content: center;
 align-items: center;
 border: 3px solid white;
 vertical-align: middle;
