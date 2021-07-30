@@ -237,7 +237,7 @@ h1, h2, h3, h4, h5, h6 {
 # Additional css
 --------------------------------------------------------------*/
 .btn-xl {
-	margin-bottom: 30px;
+	margin-bottom: 10px;
     padding: 10px 20px;
     font-size: 20px;
     border-radius: 10px;
@@ -249,12 +249,11 @@ h1, h2, h3, h4, h5, h6 {
 --------------------------------------------------------------*/
 .stopwatch {
   color: white;
-  font-size: 4rem;
+  font-size: 3.5rem;
   display: inline-block;
   background-color: none;
   border-top: 1px solid #eee;
   border-bottom: 1px solid #eee;
-
   margin: 10px;
   
 }
