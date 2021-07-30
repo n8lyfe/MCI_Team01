@@ -1,4 +1,4 @@
-var Stopwatch = function(elem, options) {
+var Coutdown = function(elem, options) {
 
     var timer       = createTimer(),
         offset,
@@ -21,27 +21,33 @@ var Stopwatch = function(elem, options) {
     }
     
     function start() {
-      if (!interval) {
+      if (!interval && clock != 0) {
         offset   = Date.now();
         interval = setInterval(update, options.delay);
       }
     }
   
     function stop() {
-      if (interval) {
+      if (interval && clock != 0) {
         clearInterval(interval);
         interval = null;
       }
     }
   
     function reset() {
-      clock = 0;
+      clock = options;
       render();
     }
   
     function update() {
-      clock += delta();
+      clock -= delta();
       render();
+      if (clock === 0) {
+        if (interval) {
+            clearInterval(interval);
+            interval = null;
+          }
+        }
     }
   
     function render() {
@@ -67,11 +73,18 @@ var Stopwatch = function(elem, options) {
       return d;
     }
 
-    function padLeft(positiveInteger, totalDigits) {
-      var padding = "00000000000000";
-      var rounding = 1.000000000001;
-      var currentDigits = positiveInteger > 0 ? 1 + Math.floor(rounding * (Math.log(positiveInteger) / Math.LN10)) : 1;
-      return (padding + positiveInteger).substr(padding.length - (totalDigits - currentDigits));
+    function padLeft(a, b) {
+        var l = (a + '').length;
+        if (l >= b) {
+            return a + '';
+        } else {
+            var arr = [];
+            for (var i = 0; i < b - l ;i++) {
+                arr.push('0');
+            }
+            arr.push(a);
+            return arr.join('');
+        }
     }
   
     // public API
@@ -81,7 +94,8 @@ var Stopwatch = function(elem, options) {
   };
 
 var a = document.getElementById("a-timer");
-aTimer = new Stopwatch(a);
+var time = setCountdown(0,1,23);
+aTimer = new Coutdown(a, time);
 
 function startWatch() {
   aTimer.start();
@@ -94,3 +108,7 @@ function stopWatch() {
 function resetWatch() {
   aTimer.reset();
 };
+
+function setCountdown(h,m,s){
+    return (h*3600000) + (m*60000) + (s*1000);
+}
