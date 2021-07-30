@@ -206,6 +206,17 @@ h1, h2, h3, h4, h5, h6 {
   text-transform: uppercase;
 }
 
+#hero h3 {
+    color: black;
+    opacity: 2;
+    font-size: 50px;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: rgb(216, 216, 216);
+}
+
+#hero h4 {
+    color: black;
+}
 
 @media (min-width: 1024px) {
   #hero {
@@ -222,16 +233,29 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 30px;
   }
 }
+/*--------------------------------------------------------------
+# Additional css
+--------------------------------------------------------------*/
+.btn-xl {
+	margin-bottom: 30px;
+    padding: 10px 20px;
+    font-size: 20px;
+    border-radius: 10px;
+    width:100%;    //Specify your width here
+}
 
 /*--------------------------------------------------------------
 # Stopwatch
 --------------------------------------------------------------*/
 .stopwatch {
+  color: white;
+  font-size: 4rem;
   display: inline-block;
-  background-color: white;
-  border: 1px solid #eee;
-  padding: 5px;
-  margin: 100px;
+  background-color: none;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+
+  margin: 10px;
   
 }
 .stopwatch span {
