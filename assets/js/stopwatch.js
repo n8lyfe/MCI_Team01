@@ -56,6 +56,7 @@ var Stopwatch = function(elem, options) {
       d = (d - s) / 60;
       var m = d % 60;
       var h = (d - m) / 60;
+      ms = padLeft(ms,3);
       timer.innerHTML = h+":"+m+":"+s+":"+ms; 
     }
   
@@ -65,6 +66,13 @@ var Stopwatch = function(elem, options) {
   
       offset = now;
       return d;
+    }
+
+    function padLeft(positiveInteger, totalDigits) {
+      var padding = "00000000000000";
+      var rounding = 1.000000000001;
+      var currentDigits = positiveInteger > 0 ? 1 + Math.floor(rounding * (Math.log(positiveInteger) / Math.LN10)) : 1;
+      return (padding + positiveInteger).substr(padding.length - (totalDigits - currentDigits));
     }
   
     // public API
