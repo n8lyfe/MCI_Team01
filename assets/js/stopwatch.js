@@ -45,12 +45,18 @@ var Stopwatch = function(elem, options) {
     }
   
     function render() {
-      d = Number(clock/1000);
-      var h = Math.floor(d / 3600);
-      var m = Math.floor(d % 3600 / 60);
-      //var s = Math.floor(d % 3600 % 60);
+      d = Number(clock);
+      // var h = Math.floor(d / 3600);
+      // var m = Math.floor(d % 3600 / 60);
+      // //var s = Math.floor(d % 3600 % 60);
+      // var ms = d % 1000;
       var ms = d % 1000;
-      timer.innerHTML = h+":"+m+":"+ms; 
+      d = (d - ms) / 1000;
+      var s = d % 60;
+      d = (d - s) / 60;
+      var m = d % 60;
+      var h = (d - m) / 60;
+      timer.innerHTML = h+":"+m+":"+s+":"+ms; 
     }
   
     function delta() {
