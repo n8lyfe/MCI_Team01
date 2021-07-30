@@ -17,20 +17,9 @@ var Stopwatch = function(elem, options) {
   
     // private functions
     function createTimer() {
-      return document.createElement("span");
+      return document.createElement("div");
     }
-  
-    function createButton(action, handler) {
-      var a = document.createElement("a");
-      a.href = "#" + action;
-      a.innerHTML = action;
-      a.addEventListener("click", function(event) {
-        handler();
-        event.preventDefault();
-      });
-      return a;
-    }
-  
+    
     function start() {
       if (!interval) {
         offset   = Date.now();
@@ -56,7 +45,12 @@ var Stopwatch = function(elem, options) {
     }
   
     function render() {
-      timer.innerHTML = clock/1000; 
+      d = Number(clock/1000);
+      var h = Math.floor(d / 3600);
+      var m = Math.floor(d % 3600 / 60);
+      //var s = Math.floor(d % 3600 % 60);
+      var ms = d % 1000;
+      timer.innerHTML = h+":"+m+":"+ms; 
     }
   
     function delta() {
