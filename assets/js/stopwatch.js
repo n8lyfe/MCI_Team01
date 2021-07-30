@@ -1,9 +1,6 @@
 var Stopwatch = function(elem, options) {
 
     var timer       = createTimer(),
-        startButton = createButton("start", start),
-        stopButton  = createButton("stop", stop),
-        resetButton = createButton("reset", reset),
         offset,
         clock,
         interval;
@@ -14,9 +11,6 @@ var Stopwatch = function(elem, options) {
   
     // append elements     
     elem.appendChild(timer);
-    elem.appendChild(startButton);
-    elem.appendChild(stopButton);
-    elem.appendChild(resetButton);
   
     // initialize
     reset();
@@ -81,3 +75,16 @@ var Stopwatch = function(elem, options) {
 
 var a = document.getElementById("a-timer");
 aTimer = new Stopwatch(a);
+
+function startWatch() {
+  console.log("start")
+  aTimer.start();
+};
+
+function stopWatch() {
+  aTimer.stop();
+};
+
+function resetWatch() {
+  aTimer.reset();
+};
