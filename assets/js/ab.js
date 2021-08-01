@@ -51,14 +51,14 @@ var Coutdown = function(elem, options) {
     function update() {
       clock -= delta();
       render();
-      if (clock === 0 && options.rounds !== 0) {
+      if (clock === 0 && options.rounds !== 1) {
         rounds = --rounds;
         if (select === 0) {
           clock = timeB;
         }else {
           clock = timeA;
         }
-      }else if(clock === 0 && options.rounds === 0) {
+      }else if(clock === 0 && options.rounds === 1) {
         clearInterval(interval);
         interval = null;
       }
@@ -77,6 +77,7 @@ var Coutdown = function(elem, options) {
       m = padLeft(m,2);
       h = padLeft(h,2);
       timer.innerHTML = h+":"+m+":"+s+":"+ms; 
+      document.getElementById("a-timer-rounds").innerHTML = rounds;
     }
   
     function delta() {
