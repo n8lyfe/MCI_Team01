@@ -59,7 +59,11 @@
 				<button class="btn btn-light btn-xl" onclick="resetWatch()"><img src="assets/vendor/bootstrap-icons/arrow-counterclockwise.svg" alt="Bootstrap" width="32" height="32"></img><br><h4>Reset</h4></button>
 			</div>
 			<div class="col-12 col-sm-3 d-flex justify-content-center">
-				<div style="width:100%;" id="container"></div>
+				<div class="row">
+					<div class="col-12 d-flex text-center text-center align-items-center">
+						<div style="width:100%;" id="container"></div>
+					</div>
+				</div>
 			</div>
 		</div>
     
@@ -78,7 +82,7 @@
 							<div class="container-fluid">
 								<div class="row">
 								  <div class="col-4">rounds</div>
-								  <div class="col-8 ms-auto"><input id="emom-rounds" type="text" maxlength="4" placeholder="00" oninput="this.value=this.value.replace(/[^0-9]/g,'');" /></div>
+								  <div class="col-8 ms-auto"><input id="emom-rounds" type="text" maxlength="4" placeholder="00" size="10" oninput="this.value=this.value.replace(/[^0-9]/g,'');" /></div>
 								</div>
 						</form>
 					</div>
@@ -106,7 +110,7 @@
 <script>
 	const btn_update = document.createElement("button");
 
-	btn_update.innerHTML = '<img src="assets/vendor/bootstrap-icons/sliders.svg" alt="Bootstrap" width="32" height="32"></img><br><h4>Change Settings</h4>'
+	btn_update.innerHTML = '<img src="assets/vendor/bootstrap-icons/sliders.svg" alt="Bootstrap" width="32" height="32"></img><br><h4>Settings</h4>'
 	btn_update.classList = 'btn btn-secondary btn-xl'
 	btn_update.setAttribute('data-bs-target','#updateModal')
 	btn_update.setAttribute('data-bs-toggle','modal')
