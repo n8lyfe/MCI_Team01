@@ -51,20 +51,23 @@ var Coutdown = function(elem, options) {
     function update() {
       clock -= delta();
       render();
-      if (clock === 0 && options.rounds !== 1) {
+      if (clock === 0 && rounds !== 1) {
         rounds = --rounds;
         if (select === 0) {
           clock = timeB;
+          select = 1;
         }else {
           clock = timeA;
+          select = 0;
         }
-      }else if(clock === 0 && options.rounds === 1) {
+      }else if(clock === 0 && rounds === 1) {
         clearInterval(interval);
         interval = null;
       }
     }
   
     function render() {
+      var state = "";
       d = Number(clock);
       var ms = d % 1000;
       d = (d - ms) / 1000;
@@ -76,7 +79,13 @@ var Coutdown = function(elem, options) {
       s = padLeft(s,2);
       m = padLeft(m,2);
       h = padLeft(h,2);
-      timer.innerHTML = h+":"+m+":"+s+":"+ms; 
+
+      if (select === 0) {
+        state = "A";
+      }else {
+        state = "B";
+      }
+      timer.innerHTML = state+" "+h+":"+m+":"+s+":"+ms; 
       document.getElementById("a-timer-rounds").innerHTML = rounds;
     }
   
@@ -109,8 +118,8 @@ var Coutdown = function(elem, options) {
   };
 
 var a = document.getElementById("a-timer");
-var timeA = setCountdown(0,1,10);
-var timeB = setCountdown(0,0,10);
+var timeA = setCountdown(0,0,10);
+var timeB = setCountdown(0,0,5);
 var rounds = 6;
 
 var options = {};
