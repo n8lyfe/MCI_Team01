@@ -9,7 +9,10 @@ var Coutdown = function(elem, options) {
         timeB,
         audioA,
         audioB,
-        select;
+        select,
+        played3 = false,
+        played2 = false,
+        played1 = false;
   
     // default options
     options = options || {};
@@ -47,6 +50,9 @@ var Coutdown = function(elem, options) {
       timeA = options.timeA;
       timeB = options.timeB;
       rounds = options.rounds;
+      played3 = false;
+      played2 = false;
+      played1 = false;
 
       clock = timeA;
       render();
@@ -56,8 +62,19 @@ var Coutdown = function(elem, options) {
       clock -= delta();
       render();
 
-      if (clock === 3000 || clock === 2000 || clock === 1000) {
+      d = Number(clock);
+      var ms = d % 1000;
+      d = (d - ms) / 1000;
+      var s = d % 60;
+      if (s === 2 && played3 === false) {
         audioA.play();
+        played3 = true;
+      }else if (s === 1 && played2 === false) {
+        audioA.play();
+        played2 = true;
+      }else if (s === 0 && played1 === false) {
+        audioA.play();
+        played1 = true;
       }
 
       if (clock <= 0 && rounds !== 1 && rounds !== 0) {
@@ -65,10 +82,16 @@ var Coutdown = function(elem, options) {
         if (select === 0) {
           clock = timeB;
           select = 1;
+          played1 = false;
+          played2 = false;
+          played3 = false;
         }else {
           clock = timeA;
           select = 0;
           rounds = --rounds;
+          played1 = false;
+          played2 = false;
+          played3 = false;
         }
       }else if(clock <= 0 && rounds === 1) {
         if (select === 1) {
@@ -82,6 +105,9 @@ var Coutdown = function(elem, options) {
           audioB.play();
           clock = timeB;
           select = 1;
+          played1 = false;
+          played2 = false;
+          played3 = false;
         }  
       }else if (rounds === 0) {
         clock = 0;

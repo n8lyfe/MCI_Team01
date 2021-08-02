@@ -5,7 +5,10 @@ var Coutdown = function(elem, options) {
         clock,
         interval,
         audioA,
-        audioB;
+        audioB,
+        played3 = false,
+        played2 = false,
+        played1 = false;
   
     // default options
     options = options || {};
@@ -40,15 +43,30 @@ var Coutdown = function(elem, options) {
       audioA = new Audio('assets/audio/soundA.mp3');
       audioB = new Audio('assets/audio/soundB.mp3');
       clock = options;
+      played3 = false;
+      played2 = false;
+      played1 = false;
       render();
     }
   
     function update() {
       clock -= delta();
       render();
+
       //audio
-      if (clock === 3000 || clock === 2000 || clock === 1000) {
+      d = Number(clock);
+      var ms = d % 1000;
+      d = (d - ms) / 1000;
+      var s = d % 60;
+      if (s === 2 && played3 === false) {
         audioA.play();
+        played3 = true;
+      }else if (s === 1 && played2 === false) {
+        audioA.play();
+        played2 = true;
+      }else if (s === 0 && played1 === false) {
+        audioA.play();
+        played1 = true;
       }
       //clock
       if (clock <= 0) {

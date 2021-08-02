@@ -7,7 +7,10 @@ var Coutdown = function(elem, options) {
         rounds,
         timeA,
         audioA,
-        audioB;
+        audioB,
+        played3 = false,
+        played2 = false,
+        played1 = false;
   
     // default options
     options = options || {};
@@ -43,6 +46,9 @@ var Coutdown = function(elem, options) {
       audioB = new Audio('assets/audio/soundB.mp3');
       timeA = options.timeA;
       rounds = options.rounds;
+      played3 = false;
+      played2 = false;
+      played1 = false;
 
       clock = timeA;
       render();
@@ -52,14 +58,28 @@ var Coutdown = function(elem, options) {
       clock -= delta();
       render();
 
-      if (clock === 3000 || clock === 2000 || clock === 1000) {
+      d = Number(clock);
+      var ms = d % 1000;
+      d = (d - ms) / 1000;
+      var s = d % 60;
+      if (s === 2 && played3 === false) {
         audioA.play();
+        played3 = true;
+      }else if (s === 1 && played2 === false) {
+        audioA.play();
+        played2 = true;
+      }else if (s === 0 && played1 === false) {
+        audioA.play();
+        played1 = true;
       }
 
       if (clock <= 0 && rounds !== 1) {
         audioB.play();
         rounds = --rounds;
         clock = timeA;
+        played1 = false;
+        played2 = false;
+        played3 = false;
       }else if(clock <= 0 && rounds === 1) {
         audioB.play();
         clock = 0;
