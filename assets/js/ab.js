@@ -149,6 +149,7 @@ aTimer = new Coutdown(a, options);
 
 
 function setTime() {
+  resetWatch();
   var ta = setCountdown(document.getElementById("a-intervall-hours").value,document.getElementById("a-intervall-minutes").value,document.getElementById("a-intervall-seconds").value);
   var tb = setCountdown(document.getElementById("b-intervall-hours").value,document.getElementById("b-intervall-minutes").value,document.getElementById("b-intervall-seconds").value);
   var r = document.getElementById("rounds").value;

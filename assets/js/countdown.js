@@ -113,6 +113,7 @@ var Coutdown = function(elem, options) {
   var aTimer = new Coutdown(a, 60000);
 
 function setTime() {
+  resetWatch();
   var time = setCountdown(document.getElementById("hours").value,document.getElementById("minutes").value,document.getElementById("seconds").value);
   aTimer.setTime(time);
 }

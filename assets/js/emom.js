@@ -131,7 +131,8 @@ var Coutdown = function(elem, options) {
   aTimer = new Coutdown(a, options);
 
   function setTime() {
-    var t = setCountdown(document.getElementById("emom-hours").value,document.getElementById("emom-minutes").value,document.getElementById("emom-seconds").value);
+    resetWatch();
+    var t = setCountdown(document.getElementById("hours").value,document.getElementById("minutes").value,document.getElementById("seconds").value);
     var r = document.getElementById("rounds").value
     aTimer.setTime(t,r);
   }
