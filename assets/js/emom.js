@@ -98,7 +98,7 @@ var Coutdown = function(elem, options) {
       d = (d - s) / 60;
       var m = d % 60;
       var h = (d - m) / 60;
-      ms = padLeft(ms,3);
+      ms = padLeft(ms/10,2);
       s = padLeft(s,2);
       m = padLeft(m,2);
       h = padLeft(h,2);
@@ -151,6 +151,7 @@ var Coutdown = function(elem, options) {
   var options = {};
   options.timeA = timeA;
   options.rounds = rounds;
+  options.delay = 10;
   aTimer = new Coutdown(a, options);
 
   function setTime() {

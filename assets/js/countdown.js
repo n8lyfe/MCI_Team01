@@ -42,7 +42,7 @@ var Coutdown = function(elem, options) {
     function reset() {
       audioA = new Audio('assets/audio/soundA.mp3');
       audioB = new Audio('assets/audio/soundB.mp3');
-      clock = options;
+      clock = options.time;
       played3 = false;
       played2 = false;
       played1 = false;
@@ -88,7 +88,7 @@ var Coutdown = function(elem, options) {
       d = (d - s) / 60;
       var m = d % 60;
       var h = (d - m) / 60;
-      ms = padLeft(ms,3);
+      ms = padLeft(ms/10,2);
       s = padLeft(s,2);
       m = padLeft(m,2);
       h = padLeft(h,2);
@@ -118,7 +118,7 @@ var Coutdown = function(elem, options) {
     }
 
     function setTime(t) {
-      options = t;
+      options.time = t;
       reset();
     }
   
@@ -130,7 +130,11 @@ var Coutdown = function(elem, options) {
   };
 
   var a = document.getElementById("a-timer");
-  var aTimer = new Coutdown(a, 60000);
+  var options = {};
+  options.time = 60000;
+  options.delay = 10;
+  var aTimer = new Coutdown(a, options);
+  
 
 function setTime() {
   resetWatch();
