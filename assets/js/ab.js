@@ -72,6 +72,7 @@ var Coutdown = function(elem, options) {
         }
       }else if(clock <= 0 && rounds === 1) {
         audioB.play();
+        rounds = --rounds;
         clearInterval(interval);
         interval = null;
       }
