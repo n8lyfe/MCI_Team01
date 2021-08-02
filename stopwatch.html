@@ -61,7 +61,7 @@
 			<button class="btn btn-danger btn-xl" onclick="stopWatch()"><img src="assets/vendor/bootstrap-icons/pause-btn.svg" alt="Bootstrap" width="32" height="32"></img><br><h4>Stop</h4></button>
 		</div>
 		<div class="col-4 d-flex justify-content-center">
-			<button class="btn btn-light btn-xl" onclick="resetWatch()"><img src="assets/vendor/bootstrap-icons/arrow-counterclockwise.svg" alt="Bootstrap" width="32" height="32"></img><br><h4>Reset</h4></button>
+			<button class="btn btn-light btn-xl" onclick="resetWatch();resetCounter()"><img src="assets/vendor/bootstrap-icons/arrow-counterclockwise.svg" alt="Bootstrap" width="32" height="32"></img><br><h4>Reset</h4></button>
 		</div>
 	</div>
    <!-- Stopwatch End  -->
@@ -84,4 +84,8 @@
         i++;
         document.getElementById('output').value = i;
     }
+	function resetCounter() {
+		i = 0;
+		document.getElementById('output').value = i;
+	}
 </script>

@@ -5,8 +5,7 @@ var Coutdown = function(elem, options) {
         clock,
         interval,
         rounds,
-        timeA,
-        select;
+        timeA;
   
     // default options
     options = options || {};
@@ -38,9 +37,7 @@ var Coutdown = function(elem, options) {
     }
   
     function reset() {
-      select = 0;
       timeA = options.timeA;
-      timeB = options.timeB;
       rounds = options.rounds;
 
       clock = timeA;
@@ -50,10 +47,10 @@ var Coutdown = function(elem, options) {
     function update() {
       clock -= delta();
       render();
-      if (clock === 0 && rounds !== 1) {
+      if (clock <= 0 && rounds !== 1) {
         rounds = --rounds;
         clock = timeA;
-      }else if(clock === 0 && rounds === 1) {
+      }else if(clock <= 0 && rounds === 1) {
         clearInterval(interval);
         interval = null;
       }
@@ -99,22 +96,34 @@ var Coutdown = function(elem, options) {
     function r() {
         return rounds;
     }
+    function setTime(t,r) {
+      options.timeA = t;
+      options.rounds = r;
+      reset();
+    }
   
     // public API
     this.start  = start;
     this.stop   = stop;
     this.reset  = reset;
+    this.setTime = setTime;
     this.r = r;
   };
 
   var a = document.getElementById("a-timer");
-  var timeA = setCountdown(0,0,3);
-  var rounds = 3;
+  var timeA = setCountdown(0,1,0);
+  var rounds = 10;
 
   var options = {};
   options.timeA = timeA;
   options.rounds = rounds;
   aTimer = new Coutdown(a, options);
+
+  function setTime() {
+    var t = setCountdown(document.getElementById("emom-hours").value,document.getElementById("emom-minutes").value,document.getElementById("emom-seconds").value);
+    var r = document.getElementById("rounds").value
+    aTimer.setTime(t,r);
+  }
 
   function startWatch() {
     aTimer.start();

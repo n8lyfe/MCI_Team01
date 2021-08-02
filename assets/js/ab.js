@@ -51,16 +51,16 @@ var Coutdown = function(elem, options) {
     function update() {
       clock -= delta();
       render();
-      if (clock === 0 && rounds !== 1) {
-        rounds = --rounds;
+      if (clock <= 0 && rounds !== 1) {
         if (select === 0) {
           clock = timeB;
           select = 1;
         }else {
           clock = timeA;
           select = 0;
+          rounds = --rounds;
         }
-      }else if(clock === 0 && rounds === 1) {
+      }else if(clock <= 0 && rounds === 1) {
         clearInterval(interval);
         interval = null;
       }
@@ -110,23 +110,39 @@ var Coutdown = function(elem, options) {
             return arr.join('');
         }
     }
+
+    function setTime(ta,tb,r) {
+      options.timeA = ta;
+      options.timeB = tb;
+      options.rounds = r;
+      reset();
+    }
   
     // public API
     this.start  = start;
     this.stop   = stop;
     this.reset  = reset;
+    this.setTime = setTime;
   };
 
 var a = document.getElementById("a-timer");
-var timeA = setCountdown(0,0,10);
-var timeB = setCountdown(0,0,5);
-var rounds = 6;
+var timeA = setCountdown(0,25,0);
+var timeB = setCountdown(0,5,0);
+var rounds = 5;
 
 var options = {};
 options.timeA = timeA;
 options.timeB = timeB;
 options.rounds = rounds;
 aTimer = new Coutdown(a, options);
+
+
+function setTime() {
+  var ta = setCountdown(document.getElementById("a-intervall-hours").value,document.getElementById("a-intervall-minutes").value,document.getElementById("a-intervall-seconds").value);
+  var tb = setCountdown(document.getElementById("b-intervall-hours").value,document.getElementById("b-intervall-minutes").value,document.getElementById("b-intervall-seconds").value);
+  var r = document.getElementById("rounds").value;
+  aTimer.setTime(ta, tb, r);
+}
 
 function startWatch() {
   aTimer.start();

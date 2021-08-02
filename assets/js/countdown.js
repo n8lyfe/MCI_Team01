@@ -86,16 +86,26 @@ var Coutdown = function(elem, options) {
             return arr.join('');
         }
     }
+
+    function setTime(t) {
+      options = t;
+      reset();
+    }
   
     // public API
     this.start  = start;
     this.stop   = stop;
     this.reset  = reset;
+    this.setTime = setTime;
   };
 
-var a = document.getElementById("a-timer");
-var time = setCountdown(0,1,23);
-aTimer = new Coutdown(a, time);
+  var a = document.getElementById("a-timer");
+  var aTimer = new Coutdown(a, 60000);
+
+function setTime() {
+  var time = setCountdown(document.getElementById("hours").value,document.getElementById("minutes").value,document.getElementById("seconds").value);
+  aTimer.setTime(time);
+}
 
 function startWatch() {
   aTimer.start();
