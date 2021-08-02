@@ -66,6 +66,7 @@ var Coutdown = function(elem, options) {
         rounds = 0;
         clearInterval(interval);
         interval = null;
+        render();
       }
     }
   

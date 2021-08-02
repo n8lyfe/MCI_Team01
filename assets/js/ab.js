@@ -60,7 +60,7 @@ var Coutdown = function(elem, options) {
         audioA.play();
       }
 
-      if (clock <= 0 && rounds !== 1) {
+      if (clock <= 0 && rounds !== 1 && rounds !== 0) {
         audioB.play();
         if (select === 0) {
           clock = timeB;
@@ -71,11 +71,25 @@ var Coutdown = function(elem, options) {
           rounds = --rounds;
         }
       }else if(clock <= 0 && rounds === 1) {
+        if (select === 1) {
+          clock = 0;
+          audioB.play();
+          rounds = 0;
+          clearInterval(interval);
+          interval = null;
+          render();
+        }else {
+          audioB.play();
+          clock = timeB;
+          select = 1;
+        }  
+      }else if (rounds === 0) {
         clock = 0;
         audioB.play();
         rounds = 0;
         clearInterval(interval);
         interval = null;
+        render();
       }
     }
   
