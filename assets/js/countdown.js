@@ -53,6 +53,7 @@ var Coutdown = function(elem, options) {
       //clock
       if (clock <= 0) {
         audioB.play();
+        clock = 0;
         if (interval) {
             clearInterval(interval);
             interval = null;
