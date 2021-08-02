@@ -5,7 +5,9 @@ var Coutdown = function(elem, options) {
         clock,
         interval,
         rounds,
-        timeA;
+        timeA,
+        audioA,
+        audioB;
   
     // default options
     options = options || {};
@@ -37,6 +39,8 @@ var Coutdown = function(elem, options) {
     }
   
     function reset() {
+      audioA = new Audio('assets/audio/soundA.mp3');
+      audioB = new Audio('assets/audio/soundB.mp3');
       timeA = options.timeA;
       rounds = options.rounds;
 
@@ -47,10 +51,17 @@ var Coutdown = function(elem, options) {
     function update() {
       clock -= delta();
       render();
+
+      if (clock === 3000 || clock === 2000 || clock === 1000) {
+        audioA.play();
+      }
+
       if (clock <= 0 && rounds !== 1) {
+        audioB.play();
         rounds = --rounds;
         clock = timeA;
       }else if(clock <= 0 && rounds === 1) {
+        audioB.play();
         clearInterval(interval);
         interval = null;
       }
@@ -134,6 +145,7 @@ var Coutdown = function(elem, options) {
   };
 
   function resetWatch() {
+    aTimer.stop();
     aTimer.reset();
   };
 

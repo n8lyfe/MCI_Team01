@@ -92,5 +92,6 @@ function stopWatch() {
 };
 
 function resetWatch() {
+  aTimer.stop();
   aTimer.reset();
 };
