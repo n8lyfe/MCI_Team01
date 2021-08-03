@@ -54,23 +54,23 @@ var Coutdown = function(elem, options) {
       render();
 
       //audio
-      d = Number(clock);
-      var ms = d % 1000;
-      d = (d - ms) / 1000;
-      var s = d % 60;
-      d = (d - s) / 60;
-      var m = d % 60;
-      var h = (d - m) / 60;
-      if (s === 2 && played3 === false && m === 0 && h === 0) {
-        audioA.play();
-        played3 = true;
-      }else if (s === 1 && played2 === false && m === 0 && h === 0) {
-        audioA.play();
-        played2 = true;
-      }else if (s === 0 && played1 === false && m === 0 && h === 0) {
-        audioA.play();
-        played1 = true;
-      }
+      // d = Number(clock);
+      // var ms = d % 1000;
+      // d = (d - ms) / 1000;
+      // var s = d % 60;
+      // d = (d - s) / 60;
+      // var m = d % 60;
+      // var h = (d - m) / 60;
+      // if (s === 2 && played3 === false && m === 0 && h === 0) {
+      //   audioA.play();
+      //   played3 = true;
+      // }else if (s === 1 && played2 === false && m === 0 && h === 0) {
+      //   audioA.play();
+      //   played2 = true;
+      // }else if (s === 0 && played1 === false && m === 0 && h === 0) {
+      //   audioA.play();
+      //   played1 = true;
+      // }
       //clock
       if (clock <= 0) {
         audioB.play();
