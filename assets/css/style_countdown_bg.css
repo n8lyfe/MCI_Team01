@@ -1,0 +1,19 @@
+
+/*--------------------------------------------------------------
+# Background
+--------------------------------------------------------------*/
+
+@media (min-width: 301px) and (max-width: 600px) {
+  body {
+	background: url("../img/sport4_sm.jpg");
+	background-size: cover;
+	position: relative;
+  }
+}
+@media (min-width: 601px) {
+  body {
+    background: url("../img/sport4_lg.jpg");
+	background-size: cover;
+	position: relative;
+  }
+}

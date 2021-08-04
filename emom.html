@@ -22,6 +22,7 @@
 
   <!--  Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+  <link href="assets/css/style_emom_bg.css" rel="stylesheet">
 </head>
 
 <body>
@@ -43,10 +44,17 @@
    <!-- Stopwatch Function   -->
 			<div class="col-12 d-flex justify-content-center">
 				<div class="stopwatch" id="a-timer"></div>
+			</div>		
+			<div class="col-sm-3 d-flex justify-content-center abintervall">
 			</div>
-			<div class="col-12 d-flex justify-content-center abintervall">
-			Rounds:&nbsp;<div id="a-timer-rounds"></div>
+			<div class="col-6 col-sm-3 d-flex justify-content-center abintervall">
+				Rounds:&nbsp;
 			</div>
+			<div class="col-6 col-sm-3 d-flex justify-content-center stopwatch">
+				<output id="a-timer-rounds"></output>
+			</div>	
+			<div class="col-sm-3 d-flex justify-content-center abintervall">
+			</div>			
 		</div>
 		<div class="row justify-content-center text-center">
 			<div class="col-4 col-sm-3 d-flex justify-content-center">
@@ -85,15 +93,15 @@
 									<br>
 									<div class="row">
 									  <div class="col-4">hours</div>
-									  <div class="col-8"><input id="hours" type="text" maxlength="2" placeholder="00" size="10" oninput="this.value=this.value.replace(/[^0-9]/g,'');" /></div>
+									  <div class="col-8"><input id="hours" type="text" maxlength="2" size="10" oninput="this.value=this.value.replace(/[^0-9]/g,'');" /></div>
 									</div>
 									<div class="row">
 									  <div class="col-4">minutes</div>
-									  <div class="col-8"><input id="minutes" type="text" maxlength="2" placeholder="00" size="10" oninput="this.value=this.value.replace(/[^0-9]/g,'');" /></div>
+									  <div class="col-8"><input id="minutes" type="text" maxlength="2" size="10" oninput="this.value=this.value.replace(/[^0-9]/g,'');" /></div>
 									</div>
 									<div class="row">
 									  <div class="col-4">seconds</div>
-									  <div class="col-8"><input id="seconds" type="text" maxlength="2" placeholder="00" size="10" oninput="this.value=this.value.replace(/[^0-9]/g,'');" /></div>
+									  <div class="col-8"><input id="seconds" type="text" maxlength="2" size="10" oninput="this.value=this.value.replace(/[^0-9]/g,'');" /></div>
 									</div>
 									<br>
 									<br>
@@ -103,7 +111,7 @@
 									<br>
 									<div class="row">
 									  <div class="col-4">rounds</div>
-									  <div class="col-8"><input id="rounds" type="text" maxlength="4" placeholder="00" size="10" oninput="this.value=this.value.replace(/[^0-9]/g,'');" /></div>
+									  <div class="col-8"><input id="rounds" type="text" maxlength="4" size="10" oninput="this.value=this.value.replace(/[^0-9]/g,'');" /></div>
 									</div>
 								</div>
 							</div>

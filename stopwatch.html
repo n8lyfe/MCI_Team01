@@ -22,6 +22,7 @@
 
   <!--  Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+  <link href="assets/css/style_stopwatch_bg.css" rel="stylesheet">
 </head>
 
 <body>
@@ -44,13 +45,16 @@
 		<div class="col-12 d-flex justify-content-center">
 			<div class="stopwatch" id="a-timer"></div>
 		</div>
-		<div class="col-1 col-sm-2 d-flex justify-content-center abintervall">
+		<div class="col-sm-3 d-flex justify-content-center abintervall">
 		</div>
-		<div class="col-9 col-sm-8 d-flex justify-content-center abintervall">
-			Rounds:&nbsp;<output id="output">0</output>
+		<div class="col-6 col-sm-4 d-flex justify-content-center abintervall">
+			Rounds:&nbsp;
 		</div>
-		<div class="col-2 col-sm-2 justify-content-center text-center align-items-center">
-			<button class="btn btn-warning btn-sm" onclick="buttonClick();"><img src="assets/vendor/bootstrap-icons/bootstrap-reboot.svg" alt="Bootstrap" width="32" height="32"></img></button>
+		<div class="col-3 col-sm-2 d-flex justify-content-center stopwatch">
+			<output id="output">0</output>
+		</div>
+		<div class="col-3 col-sm-3 justify-content-center text-center align-items-center">
+			<button class="btn btn-warning btn-lg" onclick="buttonClick();"><img src="assets/vendor/bootstrap-icons/bootstrap-reboot.svg" alt="Bootstrap" width="32" height="32"></img></button>
 		</div>
 	</div>
 	<div class="row justify-content-center text-center">
